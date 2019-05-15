@@ -42,7 +42,7 @@ parts:
       - oslo.rootwrap
       - uwsgi
       - git+https://github.com/openstack/snap.openstack#egg=snap.openstack
-    constraints: https://raw.githubusercontent.com/openstack/requirements/master/upper-constraints.txt
+    constraints: ../../../upper-constraints.txt
     build-packages:
       - libffi-dev
       - libssl-dev
