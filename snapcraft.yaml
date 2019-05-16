@@ -1,5 +1,5 @@
 name: ceilometer
-version: ocata
+version: rocky
 summary: OpenStack Data Collection Service (ceilometer)
 description: |
   collected data to various targets including data stores and message queues.
@@ -35,7 +35,7 @@ parts:
   ceilometer:
     plugin: python
     python-version: python2
-    source: https://tarballs.openstack.org/ceilometer/ceilometer-master.tar.gz
+    source: http://tarballs.openstack.org/ceilometer/ceilometer-stable-rocky.tar.gz
     python-packages:
       - pymysql
       - python-memcached
