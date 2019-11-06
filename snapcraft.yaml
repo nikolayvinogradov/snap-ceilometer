@@ -1,5 +1,5 @@
 name: ceilometer
-version: ocata
+version: stein
 summary: OpenStack Data Collection Service (ceilometer)
 description: |
   collected data to various targets including data stores and message queues.
@@ -34,14 +34,14 @@ apps:
 parts:
   ceilometer:
     plugin: python
-    python-version: python2
-    source: https://tarballs.openstack.org/ceilometer/ceilometer-master.tar.gz
+    python-version: python3
+    source: http://tarballs.openstack.org/ceilometer/ceilometer-stable-stein.tar.gz
     python-packages:
       - pymysql
       - python-memcached
       - oslo.rootwrap
       - uwsgi
-      - git+https://github.com/openstack/snap.openstack#egg=snap.openstack
+      - git+https://opendev.org/x/snap.openstack#egg=snap.openstack
     constraints: https://raw.githubusercontent.com/openstack/requirements/master/upper-constraints.txt
     build-packages:
       - libffi-dev
