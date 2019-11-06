@@ -1,4 +1,5 @@
 name: ceilometer
+base: core18
 version: stein
 summary: OpenStack Data Collection Service (ceilometer)
 description: |
@@ -43,7 +44,8 @@ parts:
       - uwsgi
       - git+https://opendev.org/x/snap.openstack#egg=snap.openstack
     # FIXME: absolute path is used
-    constraints: /home/nickv/work/microstack-lma/snap-ceilometer/upper-constraints.txt
+    constraints:
+      - /root/project/upper-constraints.txt
     stage-packages:
       - python3-dev
     build-packages:
