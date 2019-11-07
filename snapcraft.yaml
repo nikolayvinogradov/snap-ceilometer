@@ -33,6 +33,28 @@ apps:
       - network-bind
 
 parts:
+  aodh:
+    plugin: python
+    python-version: python3
+    source: http://tarballs.openstack.org/aodh/aodh-stable-stein.tar.gz
+    python-packages:
+      - pymysql
+      - python-memcached
+      - oslo.rootwrap
+      - uwsgi
+      - git+https://opendev.org/x/snap.openstack#egg=snap.openstack
+    # FIXME: absolute path is used
+    constraints:
+      - https://raw.githubusercontent.com/openstack/requirements/stable/stein/upper-constraints.txt
+    stage-packages:
+      - python3-dev
+    build-packages:
+      - libffi-dev
+      - libssl-dev
+      - libxml2-dev
+      - libxslt1-dev
+      - pkg-config
+      - gcc
   ceilometer:
     plugin: python
     python-version: python3
@@ -55,12 +77,11 @@ parts:
       - libxslt1-dev
       - pkg-config
       - gcc
-    install: |
-      $SNAPCRAFT_PART_INSTALL/bin/oslo-config-generator --config-file etc/ceilometer/ceilometer-config-generator.conf
-      mv etc/ceilometer/ceilometer.conf $SNAPCRAFT_PART_INSTALL/etc/ceilometer/ceilometer.conf
+    #install: |
+    #  $SNAPCRAFT_PART_INSTALL/bin/oslo-config-generator --config-file etc/ceilometer/ceilometer-config-generator.conf
+    #  mv etc/ceilometer/ceilometer.conf $SNAPCRAFT_PART_INSTALL/etc/ceilometer/ceilometer.conf
   templates:
     after:
       - ceilometer
     plugin: dump
     source: snap
-
