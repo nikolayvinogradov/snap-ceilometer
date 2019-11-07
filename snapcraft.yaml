@@ -88,15 +88,13 @@ parts:
   gnocchi:
     plugin: python
     python-version: python3
-    source-type: git
-    source: https://github.com/gnocchixyz/gnocchi.git
-    source-branch: 4.3.2
     python-packages:
       - pymysql
       - python-memcached
       - oslo.rootwrap
       - uwsgi
       - git+https://opendev.org/x/snap.openstack#egg=snap.openstack
+      - git+https://github.com/gnocchixyz/gnocchi.git@4.3.2
     constraints:
       - https://raw.githubusercontent.com/openstack/requirements/stable/stein/upper-constraints.txt
     stage-packages:
