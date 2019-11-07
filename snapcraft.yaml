@@ -51,6 +51,7 @@ parts:
     stage-packages:
       - python3-dev
     build-packages:
+      - git
       - libffi-dev
       - libssl-dev
       - libxml2-dev
